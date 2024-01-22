@@ -1,0 +1,15 @@
+{
+  "name": "chaosgrad",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "_build:markdown": "marked -o ./dist/_$FILE.html ./artifacts/$FILE.md && sed -e '/contents/{r ./dist/_'$FILE'.html' -e 'd}' -e 's/%title%/'$TITLE'/g' ./templates/markdown.html > ./dist/$FILE.html && rm ./dist/_$FILE.html" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "marked": "^11.1.1"
+  }
+}
