@@ -33,10 +33,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Upload artifact
+      - name: Copy css and res
+        run: cp -r ./css ./res ./dist
+      - name: Upload files
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "./dist"
+          path: ./dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2

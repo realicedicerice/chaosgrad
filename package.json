@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "_build:markdown": "marked -o ./dist/_$FILE.html ./artifacts/$FILE.md && sed -e '/contents/{r ./dist/_'$FILE'.html' -e 'd}' -e 's/%title%/'$TITLE'/g' ./templates/markdown.html > ./dist/$FILE.html && rm ./dist/_$FILE.html" 
+    "_build:markdown": "marked -o ./dist/_$FILE.html ./artifacts/$FILE.md && sed -e '/contents/{r ./dist/_'$FILE'.html' -e 'd}' -e 's/%title%/'\"$TITLE\"'/g' -e 's/%base%/'$BASE'/g' ./templates/markdown.html > ./dist/$FILE.html && rm ./dist/_$FILE.html",
+    "dev": "nodemon -w ./artifacts -x ./build_artifacts.sh -e .md & static & wait"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "marked": "^11.1.1"
+    "marked": "^11.1.1",
+    "node-static": "^0.7.11",
+    "nodemon": "^3.0.3"
   }
 }
